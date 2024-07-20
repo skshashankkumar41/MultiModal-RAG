@@ -149,7 +149,7 @@ This how the interactive UI looks
 
 ![UI](data/readme_images/UI.png)
 
-## Evaluation Results
+## Evaluation Results (Tested on 3 samples)
 
 ### RAGAS
 
