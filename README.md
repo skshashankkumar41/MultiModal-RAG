@@ -148,3 +148,81 @@ curl -X POST -H "Content-Type: application/json" -d '{"question": "Your question
 This how the interactive UI looks
 
 ![UI](data/readme_images/UI.png)
+
+## Evaluation Results
+
+### RAGAS Approach
+
+RAGAS (Retriever-Augmented Generation Answering System) is a multi-modal approach that combines the strengths of both text and image data to provide accurate and contextually relevant answers to questions. The system retrieves relevant context from a vector database and uses large language models (LLMs) to generate answers. By leveraging both textual and visual information, RAGAS aims to improve the quality and relevance of the answers provided.
+
+### Evaluation Results with Both Text and Image as Context
+
+The evaluation results when using both text and image as context are as follows:
+
+| Metric                   | Value    |
+|--------------------------|----------|
+| Faithfulness             | 0.333333 |
+| Answer Relevancy         | 0.235039 |
+| Context Precision        | 0.166667 |
+| Context Recall           | NaN      |
+| Context Entity Recall    | 0.162698 |
+| Answer Similarity        | 0.551426 |
+| Answer Correctness       | 0.137856 |
+
+### Evaluation Results with Only Text as Context
+
+The evaluation results when using only text as context are as follows:
+
+| Metric                   | Value    |
+|--------------------------|----------|
+| Faithfulness             | 0.511111 |
+| Answer Relevancy         | 0.505301 |
+| Context Precision        | 0.000000 |
+| Context Recall           | NaN      |
+| Context Entity Recall    | 0.118581 |
+| Answer Similarity        | 0.639318 |
+| Answer Correctness       | 0.159829 |
+
+### Evaluation Results with Only Image as Context
+
+The evaluation results when using only image as context are as follows:
+
+| Metric                   | Value    |
+|--------------------------|----------|
+| Faithfulness             | 0.375000 |
+| Answer Relevancy         | 0.159792 |
+| Context Precision        | 0.000000 |
+| Context Recall           | NaN      |
+| Context Entity Recall    | 0.152778 |
+| Answer Similarity        | 0.499295 |
+| Answer Correctness       | 0.124824 |
+
+### Metric Definitions
+
+#### Faithfulness
+**Definition**: Measures how accurately the generated answer reflects the content of the provided context. A higher value indicates that the answer is more directly supported by the context.
+
+#### Answer Relevancy
+**Definition**: Assesses how relevant the generated answer is to the question asked. It considers whether the answer addresses the key aspects of the question.
+
+#### Context Precision
+**Definition**: Measures the proportion of the context used that is actually relevant to the answer. It evaluates the accuracy of the retrieved context in supporting the answer.
+
+#### Context Recall
+**Definition**: Measures how much of the relevant context is retrieved. A higher value means more of the relevant information was included in the context.
+
+#### Context Entity Recall
+**Definition**: Evaluates how well the retrieved context covers the entities mentioned in the question and answer. It assesses the completeness of the context in terms of relevant entities.
+
+#### Answer Similarity
+**Definition**: Measures how similar the generated answer is to a reference or correct answer. It considers the overlap and similarity in wording and meaning.
+
+#### Answer Correctness
+**Definition**: Evaluates the overall correctness of the generated answer in relation to the question and the context provided. It assesses the factual accuracy and completeness of the answer.
+
+### Final Interpretation
+
+- Using both text and image as context provides a balance but shows room for improvement in faithfulness, answer relevancy, and context precision.
+- Using only text as context yields the highest faithfulness and answer relevancy, indicating that CLIP model is not working as effectively on current tables
+- Using only image as context results in lower performance across most metrics
+- Overall, combining text and image can potentially leverage the strengths of both modalities, but there is a need to enhance the integration and processing of multi-modal data to achieve better evaluation metrics.
