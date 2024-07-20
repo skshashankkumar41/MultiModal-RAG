@@ -7,11 +7,13 @@ from llama_index.embeddings.clip import ClipEmbedding
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.core.schema import ImageNode
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from src.utils.utils import extract_text_from_image_v2
+from src.utils.utils import extract_text_from_image_v3
 from src.prompts.prompts import qa_prompt, qa_prompt_mm
 from llama_index.llms.ollama import Ollama
 from llama_index.multi_modal_llms.ollama import OllamaMultiModal
 from llama_index.core.schema import ImageDocument
+import os
+import shutil
 
 logger = logging.getLogger(__name__)
 
@@ -97,7 +99,7 @@ class LlamaHandler():
         ## TODO: Utilize Vision to Text LLM for image to text summary
         print("Extracting text from image using PaddleOCR...")
         for doc in img_documents:
-            doc.metadata['text'] = extract_text_from_image_v2(doc.metadata.get('file_path'))
+            doc.metadata['text'] = extract_text_from_image_v3(doc.metadata.get('file_path'))
         return img_documents
     
     def pipeline_v1_persist(self):
@@ -107,6 +109,8 @@ class LlamaHandler():
         Returns:
             None
         """
+        if os.path.exists('./data/index'):
+            shutil.rmtree('./data/index')
         client = qdrant_client.QdrantClient(path="./data/index")
         text_store = self._create_vector_stores(client=client, collection_name='text_collection_v1')
         image_store = self._create_vector_stores(client=client, collection_name='image_collection_v1')
@@ -187,7 +191,7 @@ class LlamaHandler():
             image_embed_model=self.image_embed_model,
         )
         
-        retriever = index.as_retriever(similarity_top_k=2, image_similarity_top_k=2)
+        retriever = index.as_retriever(similarity_top_k=0, image_similarity_top_k=2)
         retrieval_results = retriever.retrieve(query)
         
         
@@ -367,7 +371,15 @@ class LlamaHandler():
         
         print(f"Response: {response.text}")
         
-        return response.text
+        output = {
+            'answer': response.text,
+            'metadata':{
+                'text':retrieved_texts,
+                'images': retrieved_images
+            }
+        }
+        
+        return output
     
     def multi_modal_answer_engine(self, question):
         """
@@ -390,7 +402,16 @@ class LlamaHandler():
         
         print(f"Response: {response.text}")
         
-        return response.text
+        output = {
+            'answer': response.text,
+            'metadata':{
+                'text':retrieved_texts,
+                'images': retrieved_images
+            }
+        }
+        
+        return output
+        
     
     def multi_modal_answer_engine_v3(self, question):
         """
@@ -413,7 +434,15 @@ class LlamaHandler():
         
         print(f"Response: {response.text}")
         
-        return response.text
+        output = {
+            'answer': response.text,
+            'metadata':{
+                'text':retrieved_texts,
+                'images': retrieved_images
+            }
+        }
+        
+        return output
         
         
         

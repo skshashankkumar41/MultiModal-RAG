@@ -2,6 +2,7 @@ import os
 import fitz
 from PIL import Image
 import logging
+import shutil
 from src.utils.table_transformer import detect_and_crop_save_table
 
 logger = logging.getLogger(__name__)
@@ -52,7 +53,7 @@ class PdfHandler():
             paths = ['./data/images', './data/table_images']
             for path in paths:
                 if os.path.exists(path):
-                    os.rmdir(path)
+                    shutil.rmtree(path)
                     print(f"Directory '{path}' successfully removed.")
         except OSError as e:
             # Handle potential errors

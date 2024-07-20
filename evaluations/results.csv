@@ -1,0 +1,85 @@
+question,ground_truth,answer,text,image_path,image_text,context
+compare Gopher and Chinchilla models wrt zero shot few shot,"Chinchilla consistently outperforms Gopher in the given scenarios based on the table. In zero-shot performance, Chinchilla scores 16.6 compared to Gopher's 10.1. For five-shot performance, Chinchilla achieves a score of 31.5, surpassing Gopher's 24.5. Similarly, in the sixty-four-shot scenario, Chinchilla scores 35.5, while Gopher scores 28.2. One-shot performance data is not available for either model in the table. Overall, Chinchilla demonstrates superior performance across all provided shot scenarios."," The table in the image shows the performance of different models on a task that requires zero-shot reasoning and few-shot learning. According to the given context, Gopher has worse perplexity scores than Chinchilla for both zero-shot and few-shot tasks, indicating that Chinchilla generally performs better in these settings. Specifically, for the zero-shot scenario, the perplexity score for Chinchilla is 55.4 - 64.1, while for Gopher it is 280B 43.5 - 57.0. For the few-shot scenario, Chinchilla's performance ranges from 55.4 - 64.1 to 55.4 - 64.6, whereas Gopher's scores are 57.2 and 57.2 - 64.3. It's worth noting that the performance of Chinchilla is more consistent across different settings compared to Gopher. ","['Scores\nwere obtained using the PerplexityAPI, with higher\nscore indicating more toxic generations.\nwith the size of the model, especially for Respect-\nful prompts. This was also observed in previous\nwork (Zhang et al., 2022), with the notable excep-\ntion of Hoffmann et al. (2022) where they do not\nsee a difference between Chinchilla and Gopher,\ndespite different sizes. This could be explained by\nthe fact that the larger model, Gopher, has worse\nperformance than Chinchilla, suggesting that the\nrelation between toxicity and model size may only\napply within a model family.', 'This model runs on a\nsingle V100 GPU during inference.\n0-shot 1-shot 5-shot 64-shot\nGopher 280B 43.5 - 57.0 57.2\nChinchilla 70B 55.4 - 64.1 64.6\nLLaMA7B 50.0 53.4 56.3 57.6\n13B 56.6 60.5 63.1 64.0\n33B 65.1 67.9 69.9 70.4\n65B 68.2 71.6 72.6 73.0\nTable 5: TriviaQA.']","['/Users/shashanksrivastava/Desktop/sks/MultiModal-RAG/data/table_images/llama_v1.pdf_page_4_1.png', '/Users/shashanksrivastava/Desktop/sks/MultiModal-RAG/data/table_images/llama_v1.pdf_page_5_1.png']","[""0=['Uhihot', 'T-shot', 'S-shol', '04-hot', ''], 1=['GPT-}', '[758', '14.6', '24.9', ''], 2=['Gonher', 'ZXUB', '345', '28.2', ''], 3=['Chinchillz', 'Z0B', '16.6', '313', '35.5'], 4=['14.6', '', '', '', ''], 5=['PALM', '2655', '27.6', '', ''], 6=['64P', '21.2', 'W3', '', ''], 7=['16.8', '22.0', '', '', ''], 8=['LLINA', 'ZU.I', '34', '28.1', '31.9'], 9=['3JB', '24.4', '28.3', '33.9', '36.0'], 10=['', '', '', '', '']"", '0=[\'M-shot\', \'Iehoi\', \'5-chot\', \'64shor\', \'\'], 1=[\'Uophc[\', \'2XUB\', \'41.5\', \'57.0\', \'57_2\'], 2=[\'Chinchilla\', \'ZUB\', \'64.6\', \'\', \'\'], 3=[\'S0.0\', \'534\', \'56.3\', \'57.6\', \'\'], 4=[\'56.6\', \'M15\', \'\', \'\', \'\'], 5=[\'33B\', ""6\' 4"", \'\', \'\', \'\'], 6=[\'GSB\', \'71.6\', \'72.6\', \'73.0\', \'\']']","Scores
+were obtained using the PerplexityAPI, with higher
+score indicating more toxic generations.
+with the size of the model, especially for Respect-
+ful prompts. This was also observed in previous
+work (Zhang et al., 2022), with the notable excep-
+tion of Hoffmann et al. (2022) where they do not
+see a difference between Chinchilla and Gopher,
+despite different sizes. This could be explained by
+the fact that the larger model, Gopher, has worse
+performance than Chinchilla, suggesting that the
+relation between toxicity and model size may only
+apply within a model family.
+
+This model runs on a
+single V100 GPU during inference.
+0-shot 1-shot 5-shot 64-shot
+Gopher 280B 43.5 - 57.0 57.2
+Chinchilla 70B 55.4 - 64.1 64.6
+LLaMA7B 50.0 53.4 56.3 57.6
+13B 56.6 60.5 63.1 64.0
+33B 65.1 67.9 69.9 70.4
+65B 68.2 71.6 72.6 73.0
+Table 5: TriviaQA.
+
+0=['Uhihot', 'T-shot', 'S-shol', '04-hot', ''], 1=['GPT-}', '[758', '14.6', '24.9', ''], 2=['Gonher', 'ZXUB', '345', '28.2', ''], 3=['Chinchillz', 'Z0B', '16.6', '313', '35.5'], 4=['14.6', '', '', '', ''], 5=['PALM', '2655', '27.6', '', ''], 6=['64P', '21.2', 'W3', '', ''], 7=['16.8', '22.0', '', '', ''], 8=['LLINA', 'ZU.I', '34', '28.1', '31.9'], 9=['3JB', '24.4', '28.3', '33.9', '36.0'], 10=['', '', '', '', '']
+
+0=['M-shot', 'Iehoi', '5-chot', '64shor', ''], 1=['Uophc[', '2XUB', '41.5', '57.0', '57_2'], 2=['Chinchilla', 'ZUB', '64.6', '', ''], 3=['S0.0', '534', '56.3', '57.6', ''], 4=['56.6', 'M15', '', '', ''], 5=['33B', ""6' 4"", '', '', ''], 6=['GSB', '71.6', '72.6', '73.0', '']"
+humaneval and MBPP for llama and palm models,"The table shows that PaLM with 540 billion parameters performs the best on HumanEval with a pass@1 score of 26.2 and on MBPP with pass@1 and pass@80 scores of 36.8 and 75.0, respectively. LLaMA with 65 billion parameters follows closely, achieving the highest pass@100 score on HumanEval (79.3) and competitive scores on MBPP (37.7 for pass@1 and 76.8 for pass@80). Larger models generally outperform smaller ones in code generation tasks."," HumanEval for LLama: 40.9
+MBPP for LLama: 63.4
+
+HumanEval for Palm: 21.8
+MBPP for Palm: 55.1 ","['For both tasks, the\nmodel receives a description of the program in a\nfew sentences, as well as a few input-output ex-\namples. In HumanEval, it also receives a function\nsignature, and the prompt is formatted as natural\ncode with the textual description and tests in a', '(2022)\nto train an instruct model, LLaMA-I.\nOPT 30B 26.1\nGLM 120B 44.8\nPaLM 62B 55.1\nPaLM-cont 62B 62.8\nChinchilla 70B 67.5\nLLaMA 65B 63.4\nOPT-IML-Max 30B 43.2\nFlan-T5-XXL 11B 55.1\nFlan-PaLM 62B 59.6\nFlan-PaLM-cont 62B 66.1\nLLaMA-I 65B 68.9\nTable 10: Instruction ﬁnetuning – MMLU (5-shot).']","['/Users/shashanksrivastava/Desktop/sks/MultiModal-RAG/data/table_images/llama_v1.pdf_page_9_0.png', '/Users/shashanksrivastava/Desktop/sks/MultiModal-RAG/data/table_images/llama_v1.pdf_page_6_1.png']","[""0=['LLIMA', 'GPT3', ''], 1=['Lendc[', '', ''], 2=['Kelidicn', '', ''], 3=['KuccColor', '', ''], 4=['Serual oricntation', '76.2', ''], 5=['70.1', '', ''], 6=['Nationality', '64.', ''], 7=['Disability', '', ''], 8=['Physical appearance', '77.8', ''], 9=['Socinccononic futus', '715', ''], 10=['Average able Ciuvs-Puln z', '66.6 4c COUAI', 'LieJvcc']"", ""0=['PArMS', 'DnEii', 'BPP', '', '', ''], 1=['Maie', 'Ma', '', '', '', ''], 2=['LMDA', 'I37B', '[4.0', '473', '14.8', '62.4'], 3=['PALM', '', '', '', '', ''], 4=['PALM', '2144', '', '', '', ''], 5=['PALM-cont', '62B', '13.7', '31.2', '', ''], 6=['PALM', '54UB', '26.2', '75.0', '', ''], 7=['IUS', '17.7', '56.2', '', '', ''], 8=['[3B', '15.8', '525', '21.0', '64.0', ''], 9=['J3B', '21.7', '70.7', '30.2', '', ''], 10=['65B', '13.7', '37.7', '76.8', '', '']""]","For both tasks, the
+model receives a description of the program in a
+few sentences, as well as a few input-output ex-
+amples. In HumanEval, it also receives a function
+signature, and the prompt is formatted as natural
+code with the textual description and tests in a
+
+(2022)
+to train an instruct model, LLaMA-I.
+OPT 30B 26.1
+GLM 120B 44.8
+PaLM 62B 55.1
+PaLM-cont 62B 62.8
+Chinchilla 70B 67.5
+LLaMA 65B 63.4
+OPT-IML-Max 30B 43.2
+Flan-T5-XXL 11B 55.1
+Flan-PaLM 62B 59.6
+Flan-PaLM-cont 62B 66.1
+LLaMA-I 65B 68.9
+Table 10: Instruction ﬁnetuning – MMLU (5-shot).
+
+0=['LLIMA', 'GPT3', ''], 1=['Lendc[', '', ''], 2=['Kelidicn', '', ''], 3=['KuccColor', '', ''], 4=['Serual oricntation', '76.2', ''], 5=['70.1', '', ''], 6=['Nationality', '64.', ''], 7=['Disability', '', ''], 8=['Physical appearance', '77.8', ''], 9=['Socinccononic futus', '715', ''], 10=['Average able Ciuvs-Puln z', '66.6 4c COUAI', 'LieJvcc']
+
+0=['PArMS', 'DnEii', 'BPP', '', '', ''], 1=['Maie', 'Ma', '', '', '', ''], 2=['LMDA', 'I37B', '[4.0', '473', '14.8', '62.4'], 3=['PALM', '', '', '', '', ''], 4=['PALM', '2144', '', '', '', ''], 5=['PALM-cont', '62B', '13.7', '31.2', '', ''], 6=['PALM', '54UB', '26.2', '75.0', '', ''], 7=['IUS', '17.7', '56.2', '', '', ''], 8=['[3B', '15.8', '525', '21.0', '64.0', ''], 9=['J3B', '21.7', '70.7', '30.2', '', ''], 10=['65B', '13.7', '37.7', '76.8', '', '']"
+GPT3 and llama Truthful comparison ,"The table compares the performance of GPT-3 and LLaMA models on the TruthfulQA benchmark, which measures the fraction of truthful and truthfulinformative answers. GPT-3 models with 1.3B, 6B, and 175B parameters show lower performance, with Truthful scores of 0.31, 0.22, and 0.28, and TruthfulInformative scores of 0.19, 0.19, and 0.25, respectively. In contrast, LLaMA models demonstrate superior results, with Truthful scores increasing from 0.33 to 0.57 and Truthful*Informative scores rising from 0.29 to 0.53 as the parameter count grows from 7B to 65B. This suggests that larger LLaMA models provide more truthful and informative answers compared to their GPT-3 counterparts."," The image you've provided appears to be a table from an academic paper or article, which seems to compare the performance of GPT-3 and LLama on various tasks. However, without specific data points or numerical values visible in the image, it is not possible for me to provide accurate information about their relative performance on these tasks. The textual context you've provided does mention that ""GPT-3 outperforms GPT-3 on this benchmark,"" suggesting that there is a comparison being made between the two models.
+
+To answer your question accurately, I would need to see the actual numbers from Table 16 of the appendix, which likely contain the performance metrics for both GPT-3 and LLama. If you can provide those details or clarify the specific data points you're inquiring about, I would be able to give a more precise answer regarding the truthful comparison between GPT-3 and LLama based on the table's contents. ","['LLaMA-I (65B) outperforms on MMLU existing\ninstruction ﬁnetuned models of moderate sizes, but\nare still far from the state-of-the-art, that is 77.4\nfor GPT code-davinci-002 on MMLU (numbers\ntaken from Iyer et al. (2022)). The details of the\nperformance on MMLU on the 57 tasks can be\nfound in Table 16 of the appendix.', 'This large quantity of books used\nby Gopher, Chinchilla and PaLM may also explain\nwhy Gopher outperforms GPT-3 on this benchmark,\nwhile it is comparable on other benchmarks.\n3.7 Evolution of performance during training\nDuring training, we tracked the performance of our\nmodels on a few question answering and common\nsense benchmarks, and report them in Figure 2.\nOn most benchmarks, the performance improves\nsteadily, and correlates with the training perplexity\nof the model (see Figure 1). The exceptions are\nSIQA and WinoGrande. Most notably, on SIQA,\nwe observe a lot of variance in performance,']","['/Users/shashanksrivastava/Desktop/sks/MultiModal-RAG/data/table_images/llama_v1.pdf_page_9_0.png', '/Users/shashanksrivastava/Desktop/sks/MultiModal-RAG/data/table_images/llama_v1.pdf_page_6_1.png']","[""0=['LLIMA', 'GPT3', ''], 1=['Lendc[', '', ''], 2=['Kelidicn', '', ''], 3=['KuccColor', '', ''], 4=['Serual oricntation', '76.2', ''], 5=['70.1', '', ''], 6=['Nationality', '64.', ''], 7=['Disability', '', ''], 8=['Physical appearance', '77.8', ''], 9=['Socinccononic futus', '715', ''], 10=['Average able Ciuvs-Puln z', '66.6 4c COUAI', 'LieJvcc']"", ""0=['PArMS', 'DnEii', 'BPP', '', '', ''], 1=['Maie', 'Ma', '', '', '', ''], 2=['LMDA', 'I37B', '[4.0', '473', '14.8', '62.4'], 3=['PALM', '', '', '', '', ''], 4=['PALM', '2144', '', '', '', ''], 5=['PALM-cont', '62B', '13.7', '31.2', '', ''], 6=['PALM', '54UB', '26.2', '75.0', '', ''], 7=['IUS', '17.7', '56.2', '', '', ''], 8=['[3B', '15.8', '525', '21.0', '64.0', ''], 9=['J3B', '21.7', '70.7', '30.2', '', ''], 10=['65B', '13.7', '37.7', '76.8', '', '']""]","LLaMA-I (65B) outperforms on MMLU existing
+instruction ﬁnetuned models of moderate sizes, but
+are still far from the state-of-the-art, that is 77.4
+for GPT code-davinci-002 on MMLU (numbers
+taken from Iyer et al. (2022)). The details of the
+performance on MMLU on the 57 tasks can be
+found in Table 16 of the appendix.
+
+This large quantity of books used
+by Gopher, Chinchilla and PaLM may also explain
+why Gopher outperforms GPT-3 on this benchmark,
+while it is comparable on other benchmarks.
+3.7 Evolution of performance during training
+During training, we tracked the performance of our
+models on a few question answering and common
+sense benchmarks, and report them in Figure 2.
+On most benchmarks, the performance improves
+steadily, and correlates with the training perplexity
+of the model (see Figure 1). The exceptions are
+SIQA and WinoGrande. Most notably, on SIQA,
+we observe a lot of variance in performance,
+
+0=['LLIMA', 'GPT3', ''], 1=['Lendc[', '', ''], 2=['Kelidicn', '', ''], 3=['KuccColor', '', ''], 4=['Serual oricntation', '76.2', ''], 5=['70.1', '', ''], 6=['Nationality', '64.', ''], 7=['Disability', '', ''], 8=['Physical appearance', '77.8', ''], 9=['Socinccononic futus', '715', ''], 10=['Average able Ciuvs-Puln z', '66.6 4c COUAI', 'LieJvcc']
+
+0=['PArMS', 'DnEii', 'BPP', '', '', ''], 1=['Maie', 'Ma', '', '', '', ''], 2=['LMDA', 'I37B', '[4.0', '473', '14.8', '62.4'], 3=['PALM', '', '', '', '', ''], 4=['PALM', '2144', '', '', '', ''], 5=['PALM-cont', '62B', '13.7', '31.2', '', ''], 6=['PALM', '54UB', '26.2', '75.0', '', ''], 7=['IUS', '17.7', '56.2', '', '', ''], 8=['[3B', '15.8', '525', '21.0', '64.0', ''], 9=['J3B', '21.7', '70.7', '30.2', '', ''], 10=['65B', '13.7', '37.7', '76.8', '', '']"

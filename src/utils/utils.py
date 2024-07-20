@@ -1,9 +1,12 @@
 import easyocr
 from paddleocr import PaddleOCR
-# from ppocr.utils.logging import get_logger
-# import logging
-# logger = get_logger()
-# logger.setLevel(logging.INFO)
+from ppocr.utils.logging import get_logger
+from src.utils.table_transformer import recognize_table, apply_ocr, get_cell_coordinates_by_row
+from PIL import Image
+
+import logging
+logger = get_logger()
+logger.setLevel(logging.ERROR)
 
 def extract_text_from_image_v1(image_path):
     # Initialize the reader with the desired languages
@@ -31,3 +34,17 @@ def extract_text_from_image_v2(image_path):
         text_output += line_text + "\n"
         
     return text_output
+
+def extract_text_from_image_v3(image_path):  
+    try:
+        cropped_table = Image.open(image_path)
+        image, cells = recognize_table(cropped_table)
+
+        cell_coordinates = get_cell_coordinates_by_row(cells)
+
+        text = apply_ocr(cell_coordinates, image)
+
+        
+        return text
+    except:
+        return ''

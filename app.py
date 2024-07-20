@@ -42,7 +42,7 @@ def answer_v3():
     try:
         question = request.json['question']
         response = llama_handler.multi_modal_answer_engine_v3(question)
-        return jsonify({'answer': response}), 200
+        return jsonify(response), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
@@ -51,7 +51,7 @@ def answer():
     try:
         question = request.json['question']
         response = llama_handler.multi_modal_answer_engine(question)
-        return jsonify({'answer': response}), 200
+        return jsonify(response), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     
