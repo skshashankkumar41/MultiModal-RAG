@@ -71,6 +71,16 @@ The architecture of the project consists of three main engines:
 │   ├── styles.css
 ├── templates
 │   ├── index.html
+├── evaluations
+│   ├── test_cases.csv
+│   ├── evaluation_results.csv
+│   ├── evaluation_results_only_image.csv
+│   ├── evaluation_results_only_text.csv
+│   ├── generate_results.py
+│   ├── ragas_evaluate.py
+│   ├── results.csv
+│   ├── results_only_image.csv
+│   ├── results_only_text.csv
 ├── requirements.txt
 ├── README.md
 ```
