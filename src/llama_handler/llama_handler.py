@@ -169,7 +169,7 @@ class LlamaHandler():
         
         return None 
     
-    def query_engine_v1(self, query):
+    def query_engine_v1(self, query, similarity_top_k=2, image_similarity_top_k=2):
         """
         Query the multi-modal index (version 1) and retrieve relevant text and image documents.
 
@@ -191,7 +191,7 @@ class LlamaHandler():
             image_embed_model=self.image_embed_model,
         )
         
-        retriever = index.as_retriever(similarity_top_k=0, image_similarity_top_k=2)
+        retriever = index.as_retriever(similarity_top_k=similarity_top_k, image_similarity_top_k=image_similarity_top_k)
         retrieval_results = retriever.retrieve(query)
         
         
