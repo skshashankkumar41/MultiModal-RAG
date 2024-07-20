@@ -117,6 +117,16 @@ ollama run llava
 
 ## Usage
 
+### Running the Application
+
+To start the Flask application, run:
+
+```bash
+python app.py
+```
+
+Navigate to http://localhost:5000 in your web browser to access the application.
+
 ### Processing PDFs
 
 To process the PDFs and persist the data, send a POST request to the `/persist` endpoint:
@@ -132,16 +142,6 @@ To ask a question and receive an answer, send a POST request to the /answer endp
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"question": "Your question here"}' http://localhost:5000/answer
 ```
-
-### Running the Application
-
-To start the Flask application, run:
-
-```bash
-python app.py
-```
-
-Navigate to http://localhost:5000 in your web browser to access the application.
 
 ### UI 
 
