@@ -2,6 +2,7 @@ from src.pdf_handler.pdf_handler import PdfHandler
 from src.llama_handler.llama_handler import LlamaHandler
 from flask import Flask, request, jsonify, render_template
 import logging.config
+from src.config import config
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG,format='%(asctime)s - %(name)s - %(levelname)s - %(funcName)s:%(lineno)d - %(message)s',handlers=[logging.FileHandler("logging.log", mode='w'),logging.StreamHandler()])
@@ -9,7 +10,7 @@ app.logger.setLevel(logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # instance of LlamaHanlder
-llama_handler = LlamaHandler(llm=None, mm_llm='llava')
+llama_handler = LlamaHandler(text_embed_model=config.TEXT_EMBEDDING_MODEL, image_embed_model=config.IMAGE_EMBEDDING_MODEL, llm=None, mm_llm='llava')
 # llama_handler = LlamaHandler()
 
 @app.route('/')

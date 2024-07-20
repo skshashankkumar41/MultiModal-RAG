@@ -51,19 +51,27 @@ The architecture of the project consists of three main engines:
 │   ├── images
 │   ├── index
 │   ├── pdf
+│   ├── readme_images
 │   ├── table_images
 ├── notebooks
 │   ├── test.ipynb
 ├── src
+│   ├── config
+│   │   ├── config.py
 │   ├── llama_handler
+│   │   ├── llama_handler.py
 │   ├── pdf_handler
+│   │   ├── pdf_handler.py
 │   ├── prompts
+│   │   ├── prompts.py
 │   ├── utils
+│   │   ├── table_transformer.py
+│   │   ├── utils.py
 ├── static
 │   ├── styles.css
 ├── templates
 │   ├── index.html
-
+├── README.md
 ```
 
 ## Modules
@@ -87,11 +95,24 @@ The `LlamaHandler` class handles the embedding and retrieval of data, as well as
 
 ## Installation
 
+### Dependencies 
+
 To install the necessary dependencies, run:
 
 ```bash
 pip install -r requirements.txt
 ```
+
+### Ollama Setup 
+
+Download Ollama from here [Ollama](https://ollama.com/)
+
+Run the following code after installing Ollama 
+
+```bash
+ollama run llava
+```
+
 
 ## Usage
 
