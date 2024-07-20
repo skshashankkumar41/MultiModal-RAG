@@ -71,6 +71,7 @@ The architecture of the project consists of three main engines:
 │   ├── styles.css
 ├── templates
 │   ├── index.html
+├── requirements.txt
 ├── README.md
 ```
 
