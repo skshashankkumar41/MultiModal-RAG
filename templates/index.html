@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask API UI</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 text-center">Multi-Modal RAG</h1>
+        <div class="text-center mt-4">
+            <button id="persistButton" class="btn btn-primary">Persist Data</button>
+        </div>
+        <div id="chatbox" class="mt-4 mx-auto p-3 border rounded">
+            <div id="messages" class="mb-3"></div>
+            <div class="input-group">
+                <input type="text" id="question" class="form-control" placeholder="Ask a question...">
+                <div class="input-group-append">
+                    <button id="sendButton" class="btn btn-success">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('persistButton').addEventListener('click', () => {
+            fetch('/persist', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => alert(data.message || data.error))
+                .catch(error => console.error('Error:', error));
+        });
+
+        document.getElementById('sendButton').addEventListener('click', () => {
+            const question = document.getElementById('question').value;
+            fetch('/answer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ question }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const message = document.createElement('div');
+                    message.className = 'message';
+                    message.innerHTML = `<strong>Q:</strong> ${question}<br><strong>A:</strong> ${data.answer || data.error}`;
+                    document.getElementById('messages').appendChild(message);
+                    document.getElementById('question').value = '';
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
