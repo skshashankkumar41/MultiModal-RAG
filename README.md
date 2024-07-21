@@ -10,7 +10,7 @@
 4. [Installation](#installation)
 5. [Usage](#usage)
 6. [Running the Application](#running-the-application)
-7. [Evaluations](#evaluation-results-(tested-on-3-samples))
+7. [Evaluations](#evaluations)
 
 ## Introduction
 
@@ -160,7 +160,9 @@ This how the interactive UI looks
 
 ![UI](data/readme_images/UI.png)
 
-## Evaluation Results (Tested on 3 samples)
+## Evaluations
+
+* Tested on 3 samples
 
 ### RAGAS
 
