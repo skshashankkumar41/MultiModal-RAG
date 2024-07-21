@@ -162,7 +162,7 @@ This how the interactive UI looks
 
 ## Evaluations
 
-* Tested on 3 [samples](evaluations/test_cases.csv)
+* Tested on [3 samples](evaluations/test_cases.csv)
 
 ### RAGAS
 
