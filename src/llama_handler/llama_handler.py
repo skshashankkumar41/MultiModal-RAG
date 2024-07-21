@@ -97,7 +97,7 @@ class LlamaHandler():
         print(f"Extracting Images tables...")
         img_documents = SimpleDirectoryReader(img_path).load_data()
         ## TODO: Utilize Vision to Text LLM for image to text summary
-        print("Extracting text from image using PaddleOCR...")
+        print("Extracting text from image using OCR...")
         for doc in img_documents:
             doc.metadata['text'] = extract_text_from_image_v3(doc.metadata.get('file_path'))
         return img_documents
