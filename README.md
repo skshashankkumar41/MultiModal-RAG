@@ -140,6 +140,8 @@ Navigate to http://localhost:5000 in your web browser to access the application.
 
 ### Processing PDFs
 
+Add Pdf files at this location ./data/pdf
+
 To process the PDFs and persist the data, send a POST request to the `/persist` endpoint:
 
 ```bash
