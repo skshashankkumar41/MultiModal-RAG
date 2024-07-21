@@ -10,6 +10,7 @@
 4. [Installation](#installation)
 5. [Usage](#usage)
 6. [Running the Application](#running-the-application)
+7. [Evaluations](#evaluation-results-(tested-on-3-samples))
 
 ## Introduction
 
